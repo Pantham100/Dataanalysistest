@@ -1,0 +1,43 @@
+--display top 10 recently payment details
+ere
+select *
+from payment
+order by
+payment
+fetch first 10 rows only;
+
+
+
+--Diaplay all address,postal code,staff's username
+
+SELECT
+address, postal_code, username
+from
+address a inner join staff
+on a.address_id = s.address_id;
+
+
+
+--Display all city and country
+
+SELECT *
+FROM city INNER JOIN country
+USING(country_id);
+
+--display the staff details for the manager ID - 1--
+
+select *
+from staff s1 inner join store s2
+on s1.store_id = s2.store_id
+where manager_staff_id = 1;
+
+
+SELECT *
+from rental
+where staff_id=(select staff_id from staff
+where username='Mike');
+
+select *
+from rental
+where staff_id = (select staff_id from staff
+				 where username = 'Mike');
