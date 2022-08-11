@@ -1,4 +1,4 @@
---dvdrentals--
+#dvdrentals
 
 --For each store, display the number of--
 --customers that are members of that store--
@@ -48,7 +48,7 @@ where special_features = '{Trailers}'
 
 
 
-#Northwind#
+#Northwind
 
 
 --Display avgof unitprices for all the categories of the products
