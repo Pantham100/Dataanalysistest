@@ -47,7 +47,7 @@ select productname,categoryid, avg(unitprice)
 over(partition by categoryid) as kkk from products;
 
 --Display all emp details whose
---shippeddate greater than 1996-11-27--git
+--shippeddate greater than 1996-11-27--
 
 select *
 from employees e inner join orders o
@@ -57,10 +57,10 @@ where shippeddate > '1996-11-27';
 --Display Employee firstname,Customerid whose
 --customer is in city –London--
 
-select firstname, customerid
-from employees e inner join customer c
+select  firstname, customerid
+from employees e inner join customers c
 on e.city = c.city
-where city = London;
+where e.city = 'London';
 
 
 --Display all orderids whose companyname starts with B
