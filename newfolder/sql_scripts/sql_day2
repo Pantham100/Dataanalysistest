@@ -34,17 +34,29 @@ on c.customer_id = r.customer_id
 where rental_id > 2500;
 
 --Display payment amount,paymentdate of--
---customer whose lastname isMiller--
+--customer whose lastname is Miller--
 select amount,payment_date
 from payment
 where customer_id = (select customer_id from customer c
 					where last_name like 'Miller');
---Northwind--
+
+
+--movies contain special character as trailer
+
+select title from film
+where special_features = '{Trailers}'
+
+
+
+#Northwind#
 
 
 --Display avgof unitprices for all the categories of the products
+
 select productname,categoryid, avg(unitprice)
 over(partition by categoryid) as kkk from products;
+
+
 
 --Display all emp details whose
 --shippeddate greater than 1996-11-27--
@@ -53,6 +65,8 @@ select *
 from employees e inner join orders o
 on e.employeeid = o.employeeid
 where shippeddate > '1996-11-27';
+
+
 
 --Display Employee firstname,Customerid whose
 --customer is in city –London--
@@ -63,8 +77,8 @@ on e.city = c.city
 where e.city = 'London';
 
 
-
 --Display all orderids whose companyname starts with B
+
 select *
 from orders o inner join customers c
 on o.customerid = c.customerid
