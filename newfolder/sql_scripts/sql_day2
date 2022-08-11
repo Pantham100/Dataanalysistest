@@ -63,6 +63,7 @@ on e.city = c.city
 where e.city = 'London';
 
 
+
 --Display all orderids whose companyname starts with B
 select *
 from orders o inner join customers c
