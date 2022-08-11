@@ -1,0 +1,70 @@
+--dvdrentals--
+
+--For each store, display the number of--
+--customers that are members of that store--
+select *
+from customer c inner join store s
+on c.store_id = s.store_id
+where customer_id = manager_staff_id;
+
+--Display the customer names that share--
+--the same address-
+create view address_123
+as
+select c last_name, c first_name, c customeer_id, a address
+from address a inner join customer c
+on c.address_id = a.address_id
+
+select c last_name, c first_name from address_123 a inner join address_123 c on a.address = c.address
+
+
+--Display the film details of the actor--
+--whose firstname is Ed & lastname is Chase--
+select *
+from actor a inner join film_actor f
+on a.actor_id = f.actor_id inner join
+film f2 on f.film_id = f2.film_id
+where first_name like 'Ed' and last_name like 'Chase';
+
+--display customer lastname, firstname whose
+--rentalid is greater than 2500--
+select first_name,last_name
+from customer c inner join rental r
+on c.customer_id = r.customer_id
+where rental_id > 2500;
+
+--Display payment amount,paymentdate of--
+--customer whose lastname isMiller--
+select amount,payment_date
+from payment
+where customer_id = (select customer_id from customer c
+					where last_name like 'Miller');
+--Northwind--
+
+
+--Display avgof unitprices for all the categories of the products
+select productname,categoryid, avg(unitprice)
+over(partition by categoryid) as kkk from products;
+
+--Display all emp details whose
+--shippeddate greater than 1996-11-27--git
+
+select *
+from employees e inner join orders o
+on e.employeeid = o.employeeid
+where shippeddate > '1996-11-27';
+
+--Display Employee firstname,Customerid whose
+--customer is in city –London--
+
+select firstname, customerid
+from employees e inner join customer c
+on e.city = c.city
+where city = London;
+
+
+--Display all orderids whose companyname starts with B
+select *
+from orders o inner join customers c
+on o.customerid = c.customerid
+where companyname = '_B%';
