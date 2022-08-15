@@ -29,7 +29,7 @@ SELECT COUNT(customerid), country
 FROM customers
 GROUP BY country
 
-##Groupby using COUNT, MAX, MIN, SUM, AVG
+##Groupby using COUNT, MAX, MIN, SUM, AVGg
 -- anything can be used instead of sum & Min to fetch the required detials that client needs
 --having can be used instead of where clause in aggregate function
 
