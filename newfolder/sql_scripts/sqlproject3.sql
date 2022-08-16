@@ -14,13 +14,12 @@
 --A subquery is a query that appears inside another query statement. Subqueries are also referred to as
 --sub- SELECT s or nested SELECT s.
 --(note)--The full SELECT syntax is valid in subqueries.
-SELECT first_name,customerid
+SELECT contactname,customerid
 FROM customers c
 WHERE customerid =
     (SELECT customerid
-     FROM c.customers
-     WHERE [first_name] = 'Chainring Bolts' );
-
+     FROM customers
+     WHERE contactname = 'Maria Anders');
 ##group-by
 --The GROUP BY command is used to group the result set (used with aggregate functions: COUNT, MAX, MIN, SUM, AVG).
 
